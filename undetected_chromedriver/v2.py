@@ -34,7 +34,7 @@ __all__ = (
 
 logger = logging.getLogger("uc")
 logger.setLevel(logging.getLogger().getEffectiveLevel())
-
+logging.basicConfig(level=logging.DEBUG)
 
 class Chrome(selenium.webdriver.chrome.webdriver.WebDriver):
     """
@@ -291,7 +291,7 @@ class Chrome(selenium.webdriver.chrome.webdriver.WebDriver):
         if not desired_capabilities:
             desired_capabilities = options.to_capabilities()
 
-
+        logger.debug('Issam code here')
         self.browser = subprocess.Popen(
             [options.binary_location, *options.arguments],
             stdin=subprocess.PIPE,
